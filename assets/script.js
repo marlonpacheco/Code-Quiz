@@ -32,9 +32,12 @@ function showQuestion(question) {
   question.choices.forEach(answer => {
     const button = document.createElement("button")
     button.innerText = answer.text
-    button.classList.add("btn")
+    // button.classList.add("btn")
     if (answer.correct) {
       button.dataset.correct = answer.correct
+      score++
+    } else {
+      timer
     }
     button.addEventListener("click", chooseFunction)
     button.addEventListener("click", () => {
@@ -115,6 +118,7 @@ const questions = [
 //TIMER SECTION//
 var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
+
 
 function timer() {
   var timeRemaining = 60
