@@ -18,6 +18,7 @@ function start() {
   currentQuestionIndex = 0
   questContainerEl.classList.remove("hide")
   setNextQuestion()
+  timer()
 }
 
 function setNextQuestion() {
@@ -114,3 +115,14 @@ const questions = [
 //TIMER SECTION//
 var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
+
+function timer() {
+  var timeRemaining = 60
+  var timerInterval = setInterval(function(){
+    timeRemaining--;
+    secondsDisplay.textContent = timeRemaining;
+    if(timeRemaining ===0){
+      clearInterval(timerInterval)
+    }
+  }, 1000);
+}
